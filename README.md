@@ -10,6 +10,7 @@ Generate a calendar from a JSON file.
 | -c KEY  | Key of the counter      | num       |
 | -i FILE | Path to the JSON file   | data.json |
 | -o FILE | Path to the output file | out.svg   |
+| -q      | Quiet mode              | false     |
 
 ## Usage
 
