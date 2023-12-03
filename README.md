@@ -70,7 +70,7 @@ go run main.go -k date -c num
 
 <summary>Generate calendar from Github contributions</summary>
 
-Using gh cli and jq, you can get your contributions from Github with
+Using [gh api](https://cli.github.com/manual/gh) and [jq](https://github.com/jqlang/jq), you can get your contributions from Github with
 
 ```sh
 gh api graphql -F owner='Its-Just-Nans' -f query='
@@ -97,6 +97,8 @@ Then you can generate the calendar with
 go run main.go -k date -c num -i out.json -o contributions.svg
 ```
 
-</details
+</details>
 
+## License
 
+[License MIT](./LICENSE)
