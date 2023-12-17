@@ -35,13 +35,13 @@ There are differents possible usages depending on your JSON file.
 ]
 ```
 
-</details>
-
 You will need to specify the key of the date and the key of the counter
 
 ```sh
 go run github.com/Its-Just-Nans/go-calendar -k date -d 1
 ```
+
+</details>
 
 <details>
 
@@ -60,13 +60,13 @@ go run github.com/Its-Just-Nans/go-calendar -k date -d 1
 ]
 ```
 
-</details>
-
 You will need to specify the key of the date and the key of the counter
 
 ```sh
 go run github.com/Its-Just-Nans/go-calendar -k date -c num -d 1
 ```
+
+</details>
 
 ## Example
 
