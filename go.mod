@@ -1,3 +1,3 @@
-module github.com/Its-just-Nans/go-calendar
+module github.com/Its-Just-Nans/go-calendar
 
 go 1.18
