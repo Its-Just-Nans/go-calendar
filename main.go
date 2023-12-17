@@ -163,7 +163,7 @@ func customPrintf(format string, a ...any) {
 }
 
 func parseFlag() {
-	day := 0
+	day := int(firstDayOfWeek)
 	flag.StringVar(&filename, "i", filename, "Input JSON file")
 	flag.StringVar(&keyName, "k", keyName, "Key name for date")
 	flag.IntVar(&day, "d", day, "First day of the week")
@@ -217,6 +217,7 @@ func generateSvg(result *[]map[string]interface{}) []byte {
 		dayOfWeek := int(currentDay.Weekday())
 		formattedDate := currentDay.Format("2006-01-02")
 		if currentDay.YearDay() == 1 {
+			counter++
 			nbDaysInFirstWeek = daysInFirstWeek(currentDay.Year())
 			counterWeek = 0
 		}
@@ -239,13 +240,9 @@ func generateSvg(result *[]map[string]interface{}) []byte {
 		if currentDay.Year() != previousY {
 			str.WriteString("</g>\n")
 			if currentDay != lastDay {
-				counter++
 				AddGroupText(counter, currentDay, cubeSize, marginSize, &str)
 			}
 		}
-	}
-	if counter == 0 {
-		counter = 1
 	}
 	height := counter * (cubeSize*10 + marginSize*18)
 	width := 53*cubeSize + 53*marginSize + 75
