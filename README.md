@@ -2,16 +2,19 @@
 
 Generate a calendar from a JSON file.
 
+![Example](./example.svg)
+
 ## Options with args
 
-| Option  | Description             | Default    |
-| ------- | ----------------------- | ---------- |
-| -k KEY  | Key of the date         | date       |
-| -c KEY  | Key of the counter      |            |
-| -d      | First day of the week   | 1 (Monday) |
-| -i FILE | Path to the JSON file   | data.json  |
-| -o FILE | Path to the output file | out.svg    |
-| -q      | Quiet mode              | false      |
+| Option  | Description                     | Default    |
+| ------- | ------------------------------- | ---------- |
+| -k KEY  | Key of the date                 | date       |
+| -c KEY  | Key of the counter              |            |
+| -d      | First day of the week           | 1 (Monday) |
+| -i FILE | Path to the JSON file           | data.json  |
+| -o FILE | Path to the output file         | out.svg    |
+| -q      | Quiet mode                      | false      |
+| -h      | Hexa color (alpha is optionnal) | 00C8C8FF   |
 
 ## Usage
 

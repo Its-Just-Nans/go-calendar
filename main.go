@@ -164,15 +164,30 @@ func customPrintf(format string, a ...any) {
 
 func parseFlag() {
 	day := int(firstDayOfWeek)
+	hexaColor := "00C8C8FF"
 	flag.StringVar(&filename, "i", filename, "Input JSON file")
 	flag.StringVar(&keyName, "k", keyName, "Key name for date")
 	flag.IntVar(&day, "d", day, "First day of the week")
 	flag.StringVar(&counterKey, "c", counterKey, "Key name for counter")
+	flag.StringVar(&hexaColor, "h", hexaColor, "Cube color in hexa")
 	flag.BoolVar(&quiet, "q", quiet, "Quiet mode")
 	flag.StringVar(&outputFilename, "o", outputFilename, "Output filename")
 	flag.Parse()
 	day = mod(day, 7)
 	firstDayOfWeek = time.Weekday(day)
+	var err error = nil
+	switch len(hexaColor) {
+	case 6:
+		_, err = fmt.Sscanf(hexaColor, "%02x%02x%02x", &baseColor.R, &baseColor.G, &baseColor.B)
+	case 8:
+		_, err = fmt.Sscanf(hexaColor, "%02x%02x%02x%02x", &baseColor.R, &baseColor.G, &baseColor.B, &baseColor.A)
+	default:
+		err = fmt.Errorf("invalid length: must be 6 or 8 without '#' (alpha channel is optional)")
+	}
+	if err != nil {
+		customPrintln(err)
+		os.Exit(1)
+	}
 }
 
 func readData() []byte {
