@@ -37,7 +37,7 @@ There are differents possible usages depending on your JSON file.
 You will need to specify the key of the date and the key of the counter
 
 ```sh
-go run main.go -k date -d 1
+go run github.com/Its-Just-Nans/go-calendar -k date -d 1
 ```
 
 <details>
@@ -62,7 +62,7 @@ go run main.go -k date -d 1
 You will need to specify the key of the date and the key of the counter
 
 ```sh
-go run main.go -k date -c num -d 1
+go run github.com/Its-Just-Nans/go-calendar -k date -c num -d 1
 ```
 
 ## Example
@@ -95,7 +95,7 @@ gh api graphql -F owner='Its-Just-Nans' -f query='
 Then you can generate the calendar with
 
 ```sh
-go run main.go -k date -c num -i out.json -o contributions.svg -d 1
+go run github.com/Its-Just-Nans/go-calendar -k date -c num -i out.json -o contributions.svg -d 1
 ```
 
 </details>
