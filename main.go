@@ -204,8 +204,8 @@ func daysInFirstWeek(year int) int {
 
 func generateSvg(result *[]map[string]interface{}) []byte {
 	max, dateData, lowest, highest := parsedData(*result, keyName, counterKey)
-	currentDay := time.Date(lowest.Year(), 01, 01, 0, 0, 0, 0, time.UTC)
-	lastDay := time.Date(highest.Year(), 12, 31, 0, 0, 0, 0, time.UTC).Add(24 * time.Hour)
+	currentDay := time.Date(lowest.Year(), time.January, 01, 0, 0, 0, 0, time.UTC)
+	lastDay := time.Date(highest.Year(), time.December, 31, 0, 0, 0, 0, time.UTC)
 	var str strings.Builder
 	AddStyle(&str, max)
 	defaultStr := fmt.Sprintf(`<rect data-date="%%s" width="%d" height="%d" x="%%d" y="%%d" data-level="%%d">`, cubeSize, cubeSize)
@@ -244,10 +244,10 @@ func generateSvg(result *[]map[string]interface{}) []byte {
 			}
 		}
 	}
-	height := counter * (cubeSize*10 + marginSize*18)
+	height := counter * (cubeSize*10 + marginSize*15)
 	width := 53*cubeSize + 53*marginSize + 75
 	header := fmt.Sprintf(`<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" viewBox="0 0 %d %d">%s`, width, height, width, height, "\n")
-	str.WriteString("</svg>\n")
+	str.WriteString("</g>\n</svg>\n")
 	data := []byte(header + str.String())
 	return data
 }
