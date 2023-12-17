@@ -142,11 +142,11 @@ func generateDarkenedColor(level int, maxLevel int) color.RGBA {
 var cubeSize = 15
 var marginSize = 2
 var baseColor = color.RGBA{0, 200, 200, 255}
-var firstDayOfWeek = time.Monday
 
-var keyName = "seen"
+var firstDayOfWeek = time.Monday
+var keyName = "date"
 var counterKey = ""
-var filename = "dataa.json"
+var filename = "data.json"
 var outputFilename = "out.svg"
 var quiet = false
 
